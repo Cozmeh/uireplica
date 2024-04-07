@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uireplica/Presentation/widgets/indicator.dart';
+import 'package:uireplica/Utils/constants.dart';
 
 class ActivityPieGraph extends StatelessWidget {
   const ActivityPieGraph({super.key});
@@ -36,7 +37,7 @@ class ActivityPieGraph extends StatelessWidget {
                 ),
                 PieChartSectionData(
                   value: 715,
-                  color: Colors.black45,
+                  color: Constants.DARK_BACKGROUND,
                   radius: 20,
                   titleStyle: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 15),
@@ -77,7 +78,10 @@ class ActivityPieGraph extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Indicator(color: Colors.black45, text: "Sales", isSquare: false),
+              Indicator(
+                  color: Constants.DARK_BACKGROUND,
+                  text: "Sales",
+                  isSquare: false),
               Indicator(
                   color: Colors.redAccent, text: "Reports", isSquare: false)
             ],
