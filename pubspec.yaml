@@ -31,6 +31,7 @@ dependencies:
   fl_chart: ^0.67.0
   faker: ^2.1.0
   provider:
+  flutter_screenutil: ^5.9.0
   flutter:
     sdk: flutter
 

@@ -1,5 +1,7 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uireplica/Presentation/widgets/appbar_actions.dart';
 import 'package:uireplica/Presentation/widgets/card.dart';
 
@@ -13,18 +15,18 @@ class ProfitCard extends StatelessWidget {
     return InfoCard(
       backgroundColor: Theme.of(context).colorScheme.secondary,
       content: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+        padding: EdgeInsets.symmetric(horizontal: 30.h, vertical: 30.w),
         child: SizedBox(
           child: Column(
             children: [
               ListTile(
-                contentPadding: const EdgeInsets.symmetric(horizontal: 0),
+                contentPadding: EdgeInsets.symmetric(horizontal: 0.w),
                 leading: appBarActions.cardIcon(context, () => null,
                     Icons.featured_play_list_outlined, Colors.white),
-                title: const Text(
+                title: Text(
                   "Profit",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.black),
                 ),
@@ -35,11 +37,12 @@ class ProfitCard extends StatelessWidget {
                       color: Colors.black,
                     )),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.4,
-                child: Image.asset(
-                  'assets/3.gif',
-                  fit: BoxFit.fill,
+              Expanded(
+                child: SizedBox(
+                  child: Image.asset(
+                    'assets/3.gif',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               const Row(
@@ -63,10 +66,10 @@ class ProfitCard extends StatelessWidget {
                 children: [
                   Text(
                     "₹ ${faker.randomGenerator.decimal(min: 10000, scale: 1000).toStringAsFixed(2)}",
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 50),
+                        fontSize: 50.sp),
                     textAlign: TextAlign.left,
                   ),
                 ],

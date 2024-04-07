@@ -6,19 +6,21 @@ class AppBarActions {
   Widget appbarAction(
       BuildContext context, Function() ontap, IconData icon, Color color) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2.5),
+      padding: const EdgeInsets.symmetric(horizontal: 1.5),
       child: GestureDetector(
         onTap: ontap,
         child: Container(
           decoration: BoxDecoration(
               color: color,
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                  style: BorderStyle.solid, color: Colors.grey, width: 0.5)),
-          padding: const EdgeInsets.all(10),
+                  style: BorderStyle.solid,
+                  color: const Color.fromARGB(255, 99, 98, 98),
+                  width: 1)),
+          padding: const EdgeInsets.all(8),
           child: Icon(
             icon,
-            size: 30,
+            size: 20,
           ),
         ),
       ),

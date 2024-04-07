@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:uireplica/Presentation/themes/theme_provider.dart';
 import 'package:uireplica/Presentation/widgets/activity.dart';
 import 'package:uireplica/Presentation/widgets/analytics.dart';
 import 'package:uireplica/Presentation/widgets/appbar_actions.dart';
 import 'package:uireplica/Presentation/widgets/invoices.dart';
+import 'package:uireplica/Presentation/widgets/overview.dart';
 import 'package:uireplica/Presentation/widgets/profit.dart';
 import 'package:uireplica/Presentation/widgets/sale_report.dart';
 
@@ -52,14 +54,7 @@ class _MobileLayoutState extends State<MobileLayout> {
     ];
     // all 5 info cards
     List<Widget> cards = [
-      const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        child: Text(
-          "Overview",
-          style: TextStyle(
-              fontSize: 30, fontWeight: FontWeight.bold, letterSpacing: 2),
-        ),
-      ),
+      const OverviewText(),
       ProfitCard(),
       const SalesReportCard(),
       const InvoicesCard(),
@@ -68,23 +63,29 @@ class _MobileLayoutState extends State<MobileLayout> {
     ];
 
     // main UI
-    return Scaffold(
-      drawer: const Drawer(),
-      appBar: AppBar(
-        toolbarHeight: 100,
-        backgroundColor: Theme.of(context).colorScheme.background,
-        surfaceTintColor: Theme.of(context).colorScheme.background,
-        title: Text("$currentwidth"),
-        actions: actions,
-      ),
-      body: Scrollbar(
-        child: ListView.builder(
-          itemCount: cards.length,
-          itemBuilder: (BuildContext context, index) {
-            return cards[index];
-          },
-        ),
-      ),
+    return ScreenUtilInit(
+      // approximation , not same as the design 
+      designSize: const Size(500, 1200),
+      builder: (context, child) {
+        return Scaffold(
+          drawer: const Drawer(),
+          appBar: AppBar(
+            toolbarHeight: 100.h,
+            backgroundColor: Theme.of(context).colorScheme.background,
+            surfaceTintColor: Theme.of(context).colorScheme.background,
+            title: Text("$currentwidth"),
+            actions: actions,
+          ),
+          body: Scrollbar(
+            child: ListView.builder(
+              itemCount: cards.length,
+              itemBuilder: (BuildContext context, index) {
+                return cards[index];
+              },
+            ),
+          ),
+        );
+      },
     );
   }
 }
