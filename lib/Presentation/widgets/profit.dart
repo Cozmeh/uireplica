@@ -40,10 +40,13 @@ class ProfitCard extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   child: Image.asset(
-                    'assets/3.gif',
+                    'assets/profit.gif',
                     fit: BoxFit.fill,
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 5,
               ),
               const Row(
                 children: [

@@ -56,7 +56,7 @@ class _MobileLayoutState extends State<MobileLayout> {
     List<Widget> cards = [
       const OverviewText(),
       ProfitCard(),
-      const SalesReportCard(),
+      SalesReportCard(),
       const InvoicesCard(),
       const AnalyticsCard(),
       const ActivityCard()
@@ -64,7 +64,7 @@ class _MobileLayoutState extends State<MobileLayout> {
 
     // main UI
     return ScreenUtilInit(
-      // approximation , not same as the design 
+      // approximation , not same as the design
       designSize: const Size(500, 1200),
       builder: (context, child) {
         return Scaffold(
