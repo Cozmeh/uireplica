@@ -98,7 +98,9 @@ class _SalesReportCardState extends State<SalesReportCard> {
                         child: Text(
                           'Earnings',
                           style: TextStyle(
-                            color: Theme.of(context).iconTheme.color,
+                            color: _selections[0] == true
+                                ? Theme.of(context).iconTheme.color
+                                : Colors.grey,
                             fontWeight: _selections[0] == true
                                 ? FontWeight.bold
                                 : FontWeight.w100,
@@ -110,7 +112,9 @@ class _SalesReportCardState extends State<SalesReportCard> {
                         child: Text(
                           'Payments',
                           style: TextStyle(
-                            color: Theme.of(context).iconTheme.color,
+                            color: _selections[1] == true
+                                ? Theme.of(context).iconTheme.color
+                                : Colors.grey,
                             fontWeight: _selections[1] == true
                                 ? FontWeight.bold
                                 : FontWeight.w100,

@@ -57,8 +57,8 @@ class _MobileLayoutState extends State<MobileLayout> {
       const OverviewText(),
       ProfitCard(),
       SalesReportCard(),
+      AnalyticsCard(),
       const InvoicesCard(),
-      const AnalyticsCard(),
       const ActivityCard()
     ];
 
