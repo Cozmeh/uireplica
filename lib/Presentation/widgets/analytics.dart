@@ -47,7 +47,10 @@ class AnalyticsCard extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Text("${months[DateTime.now().month]} ${DateTime.now().year}")
+                  Text(
+                    "${months[DateTime.now().month]} ${DateTime.now().year}",
+                    style: const TextStyle(color: Colors.grey),
+                  )
                 ],
               ),
               SizedBox(
