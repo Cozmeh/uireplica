@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:uireplica/Presentation/themes/theme_provider.dart';
@@ -9,6 +10,7 @@ import 'package:uireplica/Presentation/widgets/invoices.dart';
 import 'package:uireplica/Presentation/widgets/overview.dart';
 import 'package:uireplica/Presentation/widgets/profit.dart';
 import 'package:uireplica/Presentation/widgets/sale_report.dart';
+import 'package:uireplica/Presentation/widgets/side_menu.dart';
 
 class MobileLayout extends StatefulWidget {
   const MobileLayout({super.key});
@@ -68,7 +70,12 @@ class _MobileLayoutState extends State<MobileLayout> {
       designSize: const Size(500, 1200),
       builder: (context, child) {
         return Scaffold(
-          drawer: const Drawer(),
+          drawer: Drawer(
+            width: MediaQuery.of(context).size.width,
+            backgroundColor: Theme.of(context).colorScheme.background,
+            surfaceTintColor: Theme.of(context).colorScheme.background,
+            child: SideMenuBar(),
+          ),
           appBar: AppBar(
             toolbarHeight: 100.h,
             backgroundColor: Theme.of(context).colorScheme.background,
@@ -88,3 +95,14 @@ class _MobileLayoutState extends State<MobileLayout> {
     );
   }
 }
+
+/*
+GridView.builder(
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
+            itemBuilder: (context, index) {
+              return cards[index];
+            },
+            itemCount: cards.length,
+          ),
+ */
