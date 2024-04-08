@@ -23,6 +23,7 @@ class TabletLayout extends StatefulWidget {
 
 class _TabletLayoutState extends State<TabletLayout> {
   bool _isDarkMode = true;
+  bool _isThirdCard = false;
   final AppBarActions appBarActions = AppBarActions();
 
   themeChanger() {
@@ -94,6 +95,8 @@ class _TabletLayoutState extends State<TabletLayout> {
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
                   ),
                   itemCount: mainCards.length,
                   itemBuilder: (context, index) {
