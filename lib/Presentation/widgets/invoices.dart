@@ -83,15 +83,15 @@ class _InvoicesCardState extends State<InvoicesCard> {
               SizedBox(
                 height: 20.h,
               ),
-              Expanded(
+              const Expanded(
                 child: SizedBox(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    physics: const BouncingScrollPhysics(),
+                    physics: BouncingScrollPhysics(),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
-                      physics: const BouncingScrollPhysics(),
-                      child: InvoiceTable(sortAscending: _sortAscending),
+                      physics: BouncingScrollPhysics(),
+                      child: InvoiceTable(),
                     ),
                   ),
                 ),
@@ -106,8 +106,7 @@ class _InvoicesCardState extends State<InvoicesCard> {
 
 // data table for invoices
 class InvoiceTable extends StatelessWidget {
-  bool sortAscending;
-  InvoiceTable({super.key, required this.sortAscending});
+  const InvoiceTable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +114,7 @@ class InvoiceTable extends StatelessWidget {
       horizontalMargin: 0,
       dividerThickness: 0.0,
       dataRowMinHeight: 5,
-      sortAscending: sortAscending,
+      sortAscending: true,
       columns: const [
         DataColumn(
             label: Text('Customer Name', style: TextStyle(color: Colors.grey))),

@@ -31,4 +31,20 @@ List<Map<String, dynamic>> invoiceData = [
     'status': 'Paid',
     'option': 'More'
   },
+  {
+    'name': 'Tony Stark',
+    'date': '09 Oct 2023',
+    'productID': '004515',
+    'amount': r'₹9999.9',
+    'status': 'Paid',
+    'option': 'More'
+  },
+  {
+    'name': 'Steve Rogers',
+    'date': '14 Sep 2023',
+    'productID': '003114',
+    'amount': r'₹9898.98',
+    'status': 'Unpaid',
+    'option': 'More'
+  },
 ];

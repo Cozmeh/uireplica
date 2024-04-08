@@ -31,7 +31,7 @@ class _MobileLayoutState extends State<MobileLayout> {
   @override
   Widget build(BuildContext context) {
     // width of the screen
-    final currentwidth = MediaQuery.of(context).size.width;
+    //final currentwidth = MediaQuery.of(context).size.width;
     // actions button in the appbar
     List<Widget> actions = [
       appBarActions.appbarAction(context, () {}, Icons.search,
@@ -57,9 +57,9 @@ class _MobileLayoutState extends State<MobileLayout> {
       const OverviewText(),
       ProfitCard(),
       SalesReportCard(),
+      AnalyticsCard(),
       InvoicesCard(),
       const ActivityCard(),
-      AnalyticsCard(),
     ];
 
     // main UI
@@ -73,7 +73,6 @@ class _MobileLayoutState extends State<MobileLayout> {
             toolbarHeight: 100.h,
             backgroundColor: Theme.of(context).colorScheme.background,
             surfaceTintColor: Theme.of(context).colorScheme.background,
-            title: Text("$currentwidth"),
             actions: actions,
           ),
           body: Scrollbar(
