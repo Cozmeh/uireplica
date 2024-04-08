@@ -38,20 +38,20 @@ class ActivityCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const Row(
-                children: [
-                  Text(
-                    "+14% ",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    "Since last week",
-                    style: TextStyle(),
-                    textAlign: TextAlign.left,
-                  ),
-                ],
-              ),
+              // const Row(
+              //   children: [
+              //     Text(
+              //       "+14% ",
+              //       style: TextStyle(fontWeight: FontWeight.bold),
+              //       textAlign: TextAlign.left,
+              //     ),
+              //     Text(
+              //       "Since last week",
+              //       style: TextStyle(),
+              //       textAlign: TextAlign.left,
+              //     ),
+              //   ],
+              // ),
               SizedBox(
                 height: 20.h,
               ),
