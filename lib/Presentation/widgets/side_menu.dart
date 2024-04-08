@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:uireplica/Presentation/widgets/spectra.dart';
 
 class SideMenuBar extends StatelessWidget {
-  const SideMenuBar({super.key});
+  bool isMobile = true;
+  SideMenuBar({super.key, required this.isMobile});
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+    return Column(
+      //padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       children: [
-        DrawerHeader(
-          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.background,
-          ),
-          child: Center(
-            child: Text(
-              'S P E C T R A',
-              style: TextStyle(
-                color: Theme.of(context).iconTheme.color,
-                fontWeight: FontWeight.bold,
-                fontSize: 50,
-              ),
-            ),
-          ),
-        ),
+        isMobile
+            ? DrawerHeader(
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.background,
+                ),
+                child: Center(child: spectra(context)),
+              )
+            : const SizedBox(),
         // dummy buttons
         item("Dashboard", Icons.dashboard_outlined, () {}, true, context),
         item("Analytics", Icons.analytics_outlined, () {}, false, context),
@@ -32,7 +29,11 @@ class SideMenuBar extends StatelessWidget {
         item("Mail", Icons.mail_outline, () {}, false, context),
         item("Calendar", Icons.calendar_month_outlined, () {}, false, context),
         item("Settings", Icons.settings_outlined, () {}, false, context),
+        const Expanded(child: SizedBox()),
         item("Logout", Icons.logout_rounded, () {}, false, context),
+        const SizedBox(
+          height: 20,
+        )
       ],
     );
   }
@@ -41,7 +42,7 @@ class SideMenuBar extends StatelessWidget {
 Widget item(String title, IconData leadingIcon, void Function() onTap,
     bool selected, BuildContext context) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
     child: Card(
       color: Theme.of(context).colorScheme.background,
       elevation: 0,

@@ -10,7 +10,7 @@ class ResponsiveLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       // average width of tablet is more than 600/650
-      return constraints.maxWidth < 800 ? mobileLayout : tabletLayout;
+      return constraints.maxWidth < 900 ? mobileLayout : tabletLayout;
     });
   }
 }

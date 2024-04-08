@@ -7,11 +7,11 @@ class OverviewText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25.w),
-      child: Text(
+      padding: EdgeInsets.symmetric(horizontal: 0.w),
+      child: const Text(
         "Overview",
         style: TextStyle(
-            fontSize: 30.sp, fontWeight: FontWeight.bold, letterSpacing: 1.5),
+            fontSize: 25, fontWeight: FontWeight.bold, letterSpacing: 1.5),
       ),
     );
   }
