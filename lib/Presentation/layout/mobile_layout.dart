@@ -56,7 +56,7 @@ class _MobileLayoutState extends State<MobileLayout> {
     ];
     // all 5 info cards
     List<Widget> cards = [
-      const OverviewText(),
+      //const OverviewText(),
       ProfitCard(),
       SalesReportCard(),
       AnalyticsCard(),
@@ -74,21 +74,22 @@ class _MobileLayoutState extends State<MobileLayout> {
             width: MediaQuery.of(context).size.width,
             backgroundColor: Theme.of(context).colorScheme.background,
             surfaceTintColor: Theme.of(context).colorScheme.background,
-            child: SideMenuBar(),
+            child: const SideMenuBar(),
           ),
           appBar: AppBar(
+            title: OverviewText(),
             toolbarHeight: 100.h,
             backgroundColor: Theme.of(context).colorScheme.background,
             surfaceTintColor: Theme.of(context).colorScheme.background,
             actions: actions,
           ),
-          body: Scrollbar(
-            child: ListView.builder(
-              itemCount: cards.length,
-              itemBuilder: (BuildContext context, index) {
-                return cards[index];
-              },
-            ),
+          body: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1),
+            itemCount: cards.length,
+            itemBuilder: (context, index) {
+              return cards[index];
+            },
           ),
         );
       },
@@ -104,5 +105,16 @@ GridView.builder(
               return cards[index];
             },
             itemCount: cards.length,
+          ),
+ */
+
+/**
+ * Scrollbar(
+            child: ListView.builder(
+              itemCount: cards.length,
+              itemBuilder: (BuildContext context, index) {
+                return cards[index];
+              },
+            ),
           ),
  */
