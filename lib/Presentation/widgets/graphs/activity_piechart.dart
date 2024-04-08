@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:uireplica/Infrastructure/data_sources/local/piechart_data.dart';
 import 'package:uireplica/Presentation/widgets/indicator.dart';
 import 'package:uireplica/Utils/constants.dart';
 
@@ -46,36 +47,7 @@ class ActivityPieGraph extends StatelessWidget {
                   startDegreeOffset: 0,
                   borderData: FlBorderData(show: false),
                   pieTouchData: PieTouchData(enabled: true),
-                  sections: [
-                    PieChartSectionData(
-                      value: 452,
-                      color: Theme.of(context).colorScheme.secondary,
-                      radius: 20,
-                      titleStyle: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                    PieChartSectionData(
-                      value: 412,
-                      color: Theme.of(context).colorScheme.primary,
-                      radius: 20,
-                      titleStyle: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                    PieChartSectionData(
-                      value: 715,
-                      color: Constants.DARK_BACKGROUND,
-                      radius: 20,
-                      titleStyle: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                    PieChartSectionData(
-                      value: 128,
-                      color: Colors.redAccent,
-                      radius: 20,
-                      titleStyle: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                  ],
+                  sections: piechartData,
                 ),
               ),
             ],
