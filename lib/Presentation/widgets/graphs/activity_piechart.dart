@@ -42,7 +42,7 @@ class ActivityPieGraph extends StatelessWidget {
               ),
               PieChart(
                 PieChartData(
-                  centerSpaceRadius: 80,
+                  centerSpaceRadius: 80.r,
                   sectionsSpace: 0,
                   startDegreeOffset: 0,
                   borderData: FlBorderData(show: false),
@@ -53,11 +53,11 @@ class ActivityPieGraph extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(
-          height: 20,
+        SizedBox(
+          height: 20.h,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50),
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -73,9 +73,9 @@ class ActivityPieGraph extends StatelessWidget {
           ),
         ),
         SizedBox(height: 10.h),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 50),
-          child: Row(
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Indicator(
