@@ -1,7 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uireplica/Infrastructure/data_sources/local/piechart_data.dart';
 import 'package:uireplica/Presentation/widgets/indicator.dart';
@@ -42,12 +40,12 @@ class ActivityPieGraph extends StatelessWidget {
               ),
               PieChart(
                 PieChartData(
-                  centerSpaceRadius: 80.r,
-                  sectionsSpace: 0,
+                  centerSpaceRadius: 90,
+                  sectionsSpace: 10,
                   startDegreeOffset: 0,
                   borderData: FlBorderData(show: false),
                   pieTouchData: PieTouchData(enabled: true),
-                  sections: piechartData,
+                  sections: pieChartSectionData(context),
                 ),
               ),
             ],

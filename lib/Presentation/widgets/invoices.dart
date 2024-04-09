@@ -4,14 +4,95 @@ import 'package:uireplica/Infrastructure/data_sources/local/invoices_datatable.d
 import 'package:uireplica/Presentation/widgets/card.dart';
 
 class InvoicesCard extends StatefulWidget {
-  InvoicesCard({super.key});
-
+  const InvoicesCard({super.key});
   @override
   State<InvoicesCard> createState() => _InvoicesCardState();
 }
 
 class _InvoicesCardState extends State<InvoicesCard> {
+  // variables
   bool _sortAscending = true;
+
+  // card header
+  Widget cardHeader(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          "Invoices",
+          style: TextStyle(
+              fontSize: 30.sp,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).iconTheme.color,
+              letterSpacing: 1),
+        ),
+        Row(
+          children: [
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    _sortAscending = !_sortAscending;
+                  });
+                },
+                icon: const Icon(Icons.filter_list_rounded)),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+                surfaceTintColor: Theme.of(context).colorScheme.surface,
+                elevation: 0,
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.arrow_drop_down_circle_outlined,
+                    color: Theme.of(context).iconTheme.color,
+                    size: 20.0,
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    'Report',
+                    style: TextStyle(
+                      color: Theme.of(context).iconTheme.color,
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        )
+      ],
+    );
+  }
+
+  // invoice count
+  Widget invoiceCount() {
+    return Row(
+      children: [
+        Text(
+          "${invoiceData.length} Invoices",
+          style: const TextStyle(color: Colors.grey),
+        )
+      ],
+    );
+  }
+
+  // invoice table
+  Widget invoiceTable() {
+    return const Expanded(
+      child: SizedBox(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: BouncingScrollPhysics(),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            physics: BouncingScrollPhysics(),
+            child: InvoiceTable(),
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,80 +103,12 @@ class _InvoicesCardState extends State<InvoicesCard> {
         child: SizedBox(
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Invoices",
-                    style: TextStyle(
-                        fontSize: 30.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).iconTheme.color,
-                        letterSpacing: 1),
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _sortAscending = !_sortAscending;
-                            });
-                          },
-                          icon: const Icon(Icons.filter_list_rounded)),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              Theme.of(context).colorScheme.surface,
-                          surfaceTintColor:
-                              Theme.of(context).colorScheme.surface,
-                          elevation: 0,
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.arrow_drop_down_circle_outlined,
-                              color: Theme.of(context).iconTheme.color,
-                              size: 20.0,
-                            ),
-                            const SizedBox(width: 5),
-                            Text(
-                              'Report',
-                              style: TextStyle(
-                                color: Theme.of(context).iconTheme.color,
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    "${invoiceData.length} Invoices",
-                    style: const TextStyle(color: Colors.grey),
-                  )
-                ],
-              ),
+              cardHeader(context),
+              invoiceCount(),
               SizedBox(
                 height: 20.h,
               ),
-              const Expanded(
-                child: SizedBox(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    physics: BouncingScrollPhysics(),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.vertical,
-                      physics: BouncingScrollPhysics(),
-                      child: InvoiceTable(),
-                    ),
-                  ),
-                ),
-              ),
+              invoiceTable(),
             ],
           ),
         ),
@@ -112,8 +125,9 @@ class InvoiceTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return DataTable(
       horizontalMargin: 0,
-      dividerThickness: 0.0,
+      dividerThickness: 0.000000000001,
       dataRowMinHeight: 5,
+      showBottomBorder: false,
       sortAscending: true,
       columns: const [
         DataColumn(
@@ -178,53 +192,3 @@ class InvoiceTable extends StatelessWidget {
     );
   }
 }
-
-
-/*
-ListTile(
-                  contentPadding: EdgeInsets.symmetric(horizontal: 0.w),
-                  title: Text(
-                    "Invoices",
-                    style: TextStyle(
-                        fontSize: 30.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).iconTheme.color,
-                        letterSpacing: 1),
-                  ),
-                  trailing: Container(
-                    color: Colors.amber,
-                    width: 50.w,
-                    child: Row(
-                      children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  Theme.of(context).colorScheme.surface,
-                              surfaceTintColor:
-                                  Theme.of(context).colorScheme.surface,
-                              elevation: 0),
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.arrow_drop_down_circle_outlined,
-                                size: 20.0,
-                                color: Theme.of(context).iconTheme.color,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                'Report',
-                                style: TextStyle(
-                                  color: Theme.of(context).iconTheme.color,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  )),
- */

@@ -32,7 +32,7 @@ class SideMenuBar extends StatelessWidget {
         const Expanded(child: SizedBox()),
         item("Logout", Icons.logout_rounded, () {}, false, context),
         const SizedBox(
-          height: 20,
+          height: 10,
         )
       ],
     );

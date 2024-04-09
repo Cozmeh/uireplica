@@ -96,23 +96,3 @@ Widget bottomText(double value, TitleMeta meta) {
 }
 
 
-// leftTitles: AxisTitles(
-//               sideTitles: SideTitles(
-//                   showTitles: true,
-//                   reservedSize: 10,
-//                   getTitlesWidget: (value, meta) {
-//                     print(value);
-//                     return SideTitleWidget(
-//                       axisSide: meta.axisSide,
-//                       child: Text(
-//                         value.toString().length > 2
-//                             ? "${value.toString().substring(0, 2)}k"
-//                             : "$value",
-//                         style: const TextStyle(
-//                           color: Colors.grey,
-//                           fontWeight: FontWeight.bold,
-//                         ),
-//                       ),
-//                     );
-//                   }),
-//             ),

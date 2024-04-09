@@ -8,6 +8,44 @@ class ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // card header
+    Widget cardHeader(BuildContext context) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "Activity",
+            style: TextStyle(
+                fontSize: 30.sp,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).iconTheme.color,
+                letterSpacing: 1),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+                surfaceTintColor: Theme.of(context).colorScheme.surface,
+                elevation: 0),
+            onPressed: () {},
+            child: Icon(
+              Icons.more_vert,
+              size: 25.sp,
+              color: Theme.of(context).iconTheme.color,
+            ),
+          ),
+        ],
+      );
+    }
+
+    // pie chart
+    Widget pieChart() {
+      return const Expanded(
+        child: SizedBox(
+          child: ActivityPieGraph(),
+        ),
+      );
+    }
+
     return InfoCard(
       backgroundColor: Theme.of(context).colorScheme.surface,
       content: Padding(
@@ -15,37 +53,11 @@ class ActivityCard extends StatelessWidget {
         child: SizedBox(
           child: Column(
             children: [
-              ListTile(
-                contentPadding: EdgeInsets.symmetric(horizontal: 0.w),
-                title: Text(
-                  "Activity",
-                  style: TextStyle(
-                      fontSize: 30.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).iconTheme.color,
-                      letterSpacing: 1),
-                ),
-                trailing: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).colorScheme.surface,
-                      surfaceTintColor: Theme.of(context).colorScheme.surface,
-                      elevation: 0),
-                  onPressed: () {},
-                  child: Icon(
-                    Icons.more_vert,
-                    size: 25.sp,
-                    color: Theme.of(context).iconTheme.color,
-                  ),
-                ),
-              ),
+              cardHeader(context),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
-              const Expanded(
-                child: SizedBox(
-                  child: ActivityPieGraph(),
-                ),
-              ),
+              pieChart(),
             ],
           ),
         ),

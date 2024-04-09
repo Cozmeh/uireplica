@@ -20,9 +20,11 @@ class MobileLayout extends StatefulWidget {
 }
 
 class _MobileLayoutState extends State<MobileLayout> {
+  // variables
   bool _isDarkMode = true;
   final AppBarActions appBarActions = AppBarActions();
 
+  // theme changing function
   themeChanger() {
     setState(() {
       _isDarkMode =
@@ -32,37 +34,49 @@ class _MobileLayoutState extends State<MobileLayout> {
 
   @override
   Widget build(BuildContext context) {
-    // width of the screen
-    //final currentwidth = MediaQuery.of(context).size.width;
     // actions button in the appbar
-    List<Widget> actions = [
+    List<Widget> actionButtons = [
+      // search
       appBarActions.appbarAction(context, () {}, Icons.search,
           Theme.of(context).colorScheme.background),
+      // theme mode
       appBarActions.appbarAction(
           context,
           themeChanger,
           _isDarkMode ? Icons.light_mode_outlined : Icons.dark_mode_outlined,
           Theme.of(context).colorScheme.background),
+      // notification
       appBarActions.appbarAction(
           context,
           () {},
           Icons.notifications_none_rounded,
           Theme.of(context).colorScheme.background),
+      // account
       appBarActions.appbarAction(context, () {}, Icons.account_circle_outlined,
           Theme.of(context).colorScheme.background),
       const SizedBox(
         width: 20,
       )
     ];
+
     // all 5 info cards
     List<Widget> cards = [
       //const OverviewText(),
       ProfitCard(),
-      SalesReportCard(),
+      const SalesReportCard(),
       AnalyticsCard(),
-      InvoicesCard(),
+      const InvoicesCard(),
       const ActivityCard(),
     ];
+
+    Widget drawer = Drawer(
+      width: MediaQuery.of(context).size.width,
+      backgroundColor: Theme.of(context).colorScheme.background,
+      surfaceTintColor: Theme.of(context).colorScheme.background,
+      child: SideMenuBar(
+        isMobile: true,
+      ),
+    );
 
     // main UI
     return ScreenUtilInit(
@@ -70,20 +84,13 @@ class _MobileLayoutState extends State<MobileLayout> {
       designSize: const Size(500, 1200),
       builder: (context, child) {
         return Scaffold(
-          drawer: Drawer(
-            width: MediaQuery.of(context).size.width,
-            backgroundColor: Theme.of(context).colorScheme.background,
-            surfaceTintColor: Theme.of(context).colorScheme.background,
-            child: SideMenuBar(
-              isMobile: true,
-            ),
-          ),
+          drawer: drawer,
           appBar: AppBar(
-            title: OverviewText(),
+            title: const OverviewText(),
             toolbarHeight: 100.h,
             backgroundColor: Theme.of(context).colorScheme.background,
             surfaceTintColor: Theme.of(context).colorScheme.background,
-            actions: actions,
+            actions: actionButtons,
           ),
           body: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
