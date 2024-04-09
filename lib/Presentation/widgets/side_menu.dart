@@ -42,7 +42,7 @@ class SideMenuBar extends StatelessWidget {
 Widget item(String title, IconData leadingIcon, void Function() onTap,
     bool selected, BuildContext context) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
     child: Card(
       color: Theme.of(context).colorScheme.background,
       elevation: 0,

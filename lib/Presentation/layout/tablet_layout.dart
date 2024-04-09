@@ -7,6 +7,7 @@ import 'package:uireplica/Presentation/themes/theme_provider.dart';
 import 'package:uireplica/Presentation/widgets/activity.dart';
 import 'package:uireplica/Presentation/widgets/analytics.dart';
 import 'package:uireplica/Presentation/widgets/appbar_actions.dart';
+import 'package:uireplica/Presentation/widgets/overview.dart';
 import 'package:uireplica/Presentation/widgets/profit.dart';
 import 'package:uireplica/Presentation/widgets/sale_report.dart';
 import 'package:uireplica/Presentation/widgets/side_menu.dart';
@@ -25,6 +26,7 @@ class _TabletLayoutState extends State<TabletLayout> {
   bool _isDarkMode = true;
   bool _isThirdCard = false;
   final AppBarActions appBarActions = AppBarActions();
+  final drawerWidth = 300.0;
 
   themeChanger() {
     setState(() {
@@ -72,7 +74,7 @@ class _TabletLayoutState extends State<TabletLayout> {
 
     // side menu
     Widget drawer = Drawer(
-      width: 300,
+      width: drawerWidth,
       backgroundColor: Theme.of(context).colorScheme.background,
       surfaceTintColor: Theme.of(context).colorScheme.background,
       child: SideMenuBar(
@@ -87,7 +89,12 @@ class _TabletLayoutState extends State<TabletLayout> {
         return Scaffold(
           backgroundColor: Theme.of(context).colorScheme.background,
           appBar: AppBar(
-            title: spectra(context),
+            title: Row(
+              children: [
+                SizedBox(width: drawerWidth, child: spectra(context)),
+                const OverviewText()
+              ],
+            ),
             toolbarHeight: 100,
             backgroundColor: Theme.of(context).colorScheme.background,
             surfaceTintColor: Theme.of(context).colorScheme.background,
