@@ -13,7 +13,6 @@ class SalesReportCard extends StatefulWidget {
 class _SalesReportCardState extends State<SalesReportCard> {
   // variables
   final List<bool> _selections = [true, false];
-  bool _isMainGraph = true;
 
   // card header
   Widget cardHeader(BuildContext context) {
@@ -75,11 +74,15 @@ class _SalesReportCardState extends State<SalesReportCard> {
           onPressed: (int index) {
             setState(() {
               if (index == 0) {
-                _isMainGraph = true;
+                if (_selections[0] == true) {
+                  return;
+                }
                 _selections[index] = !_selections[index];
                 _selections[index + 1] = false;
               } else {
-                _isMainGraph = false;
+                if (_selections[1] == true) {
+                  return;
+                }
                 _selections[index] = !_selections[index];
                 _selections[index - 1] = false;
               }
@@ -124,7 +127,7 @@ class _SalesReportCardState extends State<SalesReportCard> {
   Widget graph() {
     return Expanded(
       child: SizedBox(
-        child: _isMainGraph
+        child: _selections[0]
             ? const SalesReportBarGraph()
             : const SalesReportPaymentGraph(),
       ),
