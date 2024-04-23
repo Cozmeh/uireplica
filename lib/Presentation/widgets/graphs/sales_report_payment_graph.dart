@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:uireplica/Domain/value_objects/sales_report_bardata.dart';
+import 'package:uireplica/Domain/data_classes/sales_report_bardata.dart';
 import 'package:uireplica/Infrastructure/data_sources/local/weekly_payment_data.dart';
 
 class SalesReportPaymentGraph extends StatelessWidget {
@@ -19,7 +19,7 @@ class SalesReportPaymentGraph extends StatelessWidget {
     );
 
     // initializing with data
-    salesReportBarData.initBarData();
+    // salesReportBarData.initBarData();
 
     return BarChart(
       BarChartData(

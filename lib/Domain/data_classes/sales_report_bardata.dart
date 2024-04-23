@@ -1,4 +1,4 @@
-import 'package:uireplica/Domain/entities/weekday_bar.dart';
+import 'package:uireplica/Domain/data_classes/weekday_bar.dart';
 
 class SalesReportBarData {
   final double sundayAmount;
@@ -16,7 +16,9 @@ class SalesReportBarData {
       required this.wednesdayAmount,
       required this.thursdayAmount,
       required this.fridayAmount,
-      required this.saturdayAmount});
+      required this.saturdayAmount}) {
+    initBarData();
+  }
 
   List<WeekDayBar> bardata = [];
 
