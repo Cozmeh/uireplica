@@ -68,9 +68,9 @@ class _MobileLayoutState extends State<MobileLayout> {
     // all 5 info cards
     List<Widget> cards = [
       //const OverviewText(),
-      ProfitCard(),
+      const ProfitCard(),
       const SalesReportCard(),
-      AnalyticsCard(),
+      const AnalyticsCard(),
       const InvoicesCard(),
       const ActivityCard(),
     ];

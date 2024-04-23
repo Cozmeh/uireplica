@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:uireplica/Presentation/widgets/card.dart';
 import 'package:uireplica/Presentation/widgets/graphs/analytics_line_graph.dart';
 
 class AnalyticsCard extends StatelessWidget {
-  AnalyticsCard({super.key});
-
-  // months
-  final List<String> months = [
-    '', // Index 0 is empty to align with DateTime month values
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];
+  const AnalyticsCard({super.key});
 
   Widget cardHeader(BuildContext context) {
     return Row(
@@ -46,7 +40,7 @@ class AnalyticsCard extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "${months[DateTime.now().month]} ${DateTime.now().year}",
+          "${DateFormat('MMMM').format(DateTime.now())} ${DateTime.now().year}",
           style: const TextStyle(color: Colors.grey),
         )
       ],
