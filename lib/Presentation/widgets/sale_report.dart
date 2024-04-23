@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:uireplica/Presentation/widgets/appbar_actions.dart';
 import 'package:uireplica/Presentation/widgets/card.dart';
 import 'package:uireplica/Presentation/widgets/graphs/sales_report_graph.dart';
 import 'package:uireplica/Presentation/widgets/graphs/sales_report_payment_graph.dart';
@@ -13,7 +12,6 @@ class SalesReportCard extends StatefulWidget {
 
 class _SalesReportCardState extends State<SalesReportCard> {
   // variables
-  final AppBarActions appBarActions = AppBarActions();
   final List<bool> _selections = [true, false];
   bool _isMainGraph = true;
 

@@ -1,20 +1,41 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:uireplica/Presentation/widgets/appbar_actions.dart';
 import 'package:uireplica/Presentation/widgets/card.dart';
 
 class ProfitCard extends StatelessWidget {
-  ProfitCard({super.key});
-
-  final AppBarActions appBarActions = AppBarActions();
+  const ProfitCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    // card icon
+    Widget cardIcon(
+      BuildContext context, Function() ontap, IconData icon, Color color) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2.5),
+      child: GestureDetector(
+        onTap: ontap,
+        child: Container(
+          decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(15),
+              border:
+                  Border.all(style: BorderStyle.solid, color: Colors.white)),
+          padding: const EdgeInsets.all(10),
+          child: Icon(
+            color: Colors.black,
+            icon,
+            size: 30,
+          ),
+        ),
+      ),
+    );
+  }
     // card header
     Widget cardHeader = ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 0.w),
-      leading: appBarActions.cardIcon(
+      leading: cardIcon(
           context, () => null, Icons.featured_play_list_outlined, Colors.white),
       title: Text(
         "Profit",

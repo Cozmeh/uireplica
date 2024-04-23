@@ -24,8 +24,6 @@ class TabletLayout extends StatefulWidget {
 
 class _TabletLayoutState extends State<TabletLayout> {
   bool _isDarkMode = true;
-  bool _isThirdCard = false;
-  final AppBarActions appBarActions = AppBarActions();
   final drawerWidth = 300.0;
 
   themeChanger() {
@@ -40,32 +38,38 @@ class _TabletLayoutState extends State<TabletLayout> {
     // actions button in the appbar
     List<Widget> actionButtons = [
       // search
-      appBarActions.appbarAction(context, () {}, Icons.search,
-          Theme.of(context).colorScheme.background),
+      AppBarActions(
+          context: context,
+          ontap: () {},
+          icon: Icons.search,
+          color: Theme.of(context).colorScheme.background),
       // theme mode
-      appBarActions.appbarAction(
-          context,
-          themeChanger,
-          _isDarkMode ? Icons.light_mode_outlined : Icons.dark_mode_outlined,
-          Theme.of(context).colorScheme.background),
+      AppBarActions(
+          context: context,
+          ontap: themeChanger,
+          icon: _isDarkMode
+              ? Icons.light_mode_outlined
+              : Icons.dark_mode_outlined,
+          color: Theme.of(context).colorScheme.background),
       // notification
-      appBarActions.appbarAction(
-          context,
-          () {},
-          Icons.notifications_none_rounded,
-          Theme.of(context).colorScheme.background),
+      AppBarActions(
+          context: context,
+          ontap: () {},
+          icon: Icons.notifications_none_rounded,
+          color: Theme.of(context).colorScheme.background),
       // account
-      appBarActions.appbarAction(context, () {}, Icons.account_circle_outlined,
-          Theme.of(context).colorScheme.background),
-      const SizedBox(
-        width: 20,
-      )
+      AppBarActions(
+          context: context,
+          ontap: () {},
+          icon: Icons.account_circle_outlined,
+          color: Theme.of(context).colorScheme.background),
+      const SizedBox(width: 20)
     ];
 
     // all 5 info cards
     List<Widget> mainCards = [
       //const OverviewText(),
-      ProfitCard(),
+      const ProfitCard(),
       const SalesReportCard(),
       AnalyticsCard(),
       const InvoicesCard(),
