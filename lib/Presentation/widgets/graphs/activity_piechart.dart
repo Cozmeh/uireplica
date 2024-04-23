@@ -79,9 +79,9 @@ class ActivityPieGraph extends StatelessWidget {
               Indicator(
                   color: Constants.DARK_BACKGROUND,
                   text: "Sales",
-                  isSquare: false),
+                  isSquare: true),
               Indicator(
-                  color: Colors.redAccent, text: "Reports", isSquare: false)
+                  color: Colors.redAccent, text: "Reports", isSquare: true)
             ],
           ),
         ),
