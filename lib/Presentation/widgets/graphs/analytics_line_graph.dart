@@ -27,7 +27,8 @@ class AnalyticsLineGraph extends StatelessWidget {
         ),
         lineBarsData: [
           LineChartBarData(
-            spots: lineSpots,
+            spots:
+                lineSpots.entries.map((e) => FlSpot(e.key, e.value)).toList(),
             isCurved: true,
             barWidth: 3,
             isStrokeCapRound: true,

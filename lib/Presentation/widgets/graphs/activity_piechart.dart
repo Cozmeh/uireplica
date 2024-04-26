@@ -56,33 +56,17 @@ class ActivityPieGraph extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 30.w),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Indicator(
-                  color: Theme.of(context).colorScheme.secondary,
-                  text: "Transactions",
-                  isSquare: false),
-              Indicator(
-                  color: Theme.of(context).colorScheme.primary,
-                  text: "Payouts",
-                  isSquare: false)
-            ],
-          ),
-        ),
-        SizedBox(height: 10.h),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30.w),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Indicator(
-                  color: Constants.DARK_BACKGROUND,
-                  text: "Sales",
-                  isSquare: true),
-              Indicator(
-                  color: Colors.redAccent, text: "Reports", isSquare: true)
-            ],
+          child: Wrap(
+            spacing: 10,
+            direction: Axis.horizontal,
+            runAlignment: WrapAlignment.spaceAround,
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: pieChartSectionValue.entries
+                .map((e) => Indicator(
+                    color: e.value.entries.first.value,
+                    text: e.key,
+                    isSquare: false))
+                .toList(),
           ),
         ),
       ],

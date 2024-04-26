@@ -17,7 +17,9 @@ class Indicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Wrap(
+      direction: Axis.horizontal,
+      spacing: 5,
       children: <Widget>[
         Container(
           width: size,
@@ -26,9 +28,6 @@ class Indicator extends StatelessWidget {
             shape: isSquare ? BoxShape.rectangle : BoxShape.circle,
             color: color,
           ),
-        ),
-        const SizedBox(
-          width: 4,
         ),
         Text(
           text,
