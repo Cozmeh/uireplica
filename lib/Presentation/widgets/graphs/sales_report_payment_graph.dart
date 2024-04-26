@@ -41,7 +41,7 @@ class SalesReportPaymentGraph extends StatelessWidget {
             bottomTitles: AxisTitles(
                 sideTitles:
                     SideTitles(showTitles: true, getTitlesWidget: bottomText))),
-        barGroups: salesReportBarData.bardata
+        barGroups: salesReportBarData.barData
             .map(
               (data) => BarChartGroupData(
                 x: data.x,

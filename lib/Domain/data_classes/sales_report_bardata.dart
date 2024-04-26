@@ -17,13 +17,7 @@ class SalesReportBarData {
       required this.thursdayAmount,
       required this.fridayAmount,
       required this.saturdayAmount}) {
-    initBarData();
-  }
-
-  List<WeekDayBar> bardata = [];
-
-  void initBarData() {
-    bardata = [
+    barData = [
       WeekDayBar(x: 0, y: sundayAmount),
       WeekDayBar(x: 1, y: mondayAmount),
       WeekDayBar(x: 2, y: tuesdayAmount),
@@ -33,4 +27,5 @@ class SalesReportBarData {
       WeekDayBar(x: 6, y: saturdayAmount)
     ];
   }
+  List<WeekDayBar> barData = [];
 }
