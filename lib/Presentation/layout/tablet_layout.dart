@@ -40,13 +40,13 @@ class _TabletLayoutState extends State<TabletLayout> {
       // search
       AppBarActions(
           context: context,
-          ontap: () {},
+          onTap: () {},
           icon: Icons.search,
           color: Theme.of(context).colorScheme.background),
       // theme mode
       AppBarActions(
           context: context,
-          ontap: themeChanger,
+          onTap: themeChanger,
           icon: _isDarkMode
               ? Icons.light_mode_outlined
               : Icons.dark_mode_outlined,
@@ -54,13 +54,13 @@ class _TabletLayoutState extends State<TabletLayout> {
       // notification
       AppBarActions(
           context: context,
-          ontap: () {},
+          onTap: () {},
           icon: Icons.notifications_none_rounded,
           color: Theme.of(context).colorScheme.background),
       // account
       AppBarActions(
           context: context,
-          ontap: () {},
+          onTap: () {},
           icon: Icons.account_circle_outlined,
           color: Theme.of(context).colorScheme.background),
       const SizedBox(width: 20)

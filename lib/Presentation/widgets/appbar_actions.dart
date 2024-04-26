@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 
 class AppBarActions extends StatelessWidget {
   final BuildContext context;
-  final Function() ontap;
+  final Function() onTap;
   final IconData icon;
   final Color color;
   const AppBarActions(
       {super.key,
       required this.context,
-      required this.ontap,
+      required this.onTap,
       required this.icon,
       required this.color});
 
@@ -19,7 +19,7 @@ class AppBarActions extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 1.5),
       child: GestureDetector(
-        onTap: ontap,
+        onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
               color: color,
@@ -38,29 +38,3 @@ class AppBarActions extends StatelessWidget {
     );
   }
 }
-
-// class AppBarActions {
-//   Widget appbarAction(
-//       BuildContext context, Function() ontap, IconData icon, Color color) {
-//     return Padding(
-//       padding: const EdgeInsets.symmetric(horizontal: 1.5),
-//       child: GestureDetector(
-//         onTap: ontap,
-//         child: Container(
-//           decoration: BoxDecoration(
-//               color: color,
-//               borderRadius: BorderRadius.circular(10),
-//               border: Border.all(
-//                   style: BorderStyle.solid,
-//                   color: const Color.fromARGB(255, 99, 98, 98),
-//                   width: 1)),
-//           padding: const EdgeInsets.all(8),
-//           child: Icon(
-//             icon,
-//             size: 20,
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

@@ -10,64 +10,9 @@ class InvoicesCard extends StatefulWidget {
 }
 
 class _InvoicesCardState extends State<InvoicesCard> {
-  // variables
-  bool _sortAscending = true;
-
-  // card header
-  Widget cardHeader(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          "Invoices",
-          style: TextStyle(
-              fontSize: 30.sp,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).iconTheme.color,
-              letterSpacing: 1),
-        ),
-        Row(
-          children: [
-            IconButton(
-                onPressed: () {
-                  setState(() {
-                    _sortAscending = !_sortAscending;
-                  });
-                },
-                icon: const Icon(Icons.filter_list_rounded)),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.surface,
-                surfaceTintColor: Theme.of(context).colorScheme.surface,
-                elevation: 0,
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.arrow_drop_down_circle_outlined,
-                    color: Theme.of(context).iconTheme.color,
-                    size: 20.0,
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    'Report',
-                    style: TextStyle(
-                      color: Theme.of(context).iconTheme.color,
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        )
-      ],
-    );
-  }
 
   // invoice count
-  Widget invoiceCount() {
-    return Row(
+  Widget invoiceCount = Row(
       children: [
         Text(
           "${invoiceData.length} Invoices",
@@ -75,11 +20,10 @@ class _InvoicesCardState extends State<InvoicesCard> {
         )
       ],
     );
-  }
+  
 
   // invoice table
-  Widget invoiceTable() {
-    return const Expanded(
+  Widget invoiceTable =  const Expanded(
       child: SizedBox(
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -92,7 +36,7 @@ class _InvoicesCardState extends State<InvoicesCard> {
         ),
       ),
     );
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -104,11 +48,11 @@ class _InvoicesCardState extends State<InvoicesCard> {
           child: Column(
             children: [
               cardHeader(context),
-              invoiceCount(),
+              invoiceCount,
               SizedBox(
                 height: 20.h,
               ),
-              invoiceTable(),
+              invoiceTable,
             ],
           ),
         ),
@@ -192,3 +136,51 @@ class InvoiceTable extends StatelessWidget {
     );
   }
 }
+
+// card header
+  Widget cardHeader(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          "Invoices",
+          style: TextStyle(
+              fontSize: 30.sp,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).iconTheme.color,
+              letterSpacing: 1),
+        ),
+        Row(
+          children: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.filter_list_rounded)),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.surface,
+                surfaceTintColor: Theme.of(context).colorScheme.surface,
+                elevation: 0,
+              ),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.arrow_drop_down_circle_outlined,
+                    color: Theme.of(context).iconTheme.color,
+                    size: 20.0,
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    'Report',
+                    style: TextStyle(
+                      color: Theme.of(context).iconTheme.color,
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        )
+      ],
+    );
+  }

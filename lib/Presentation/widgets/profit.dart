@@ -9,29 +9,6 @@ class ProfitCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // card icon
-    Widget cardIcon(
-      BuildContext context, Function() ontap, IconData icon, Color color) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2.5),
-      child: GestureDetector(
-        onTap: ontap,
-        child: Container(
-          decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(15),
-              border:
-                  Border.all(style: BorderStyle.solid, color: Colors.white)),
-          padding: const EdgeInsets.all(10),
-          child: Icon(
-            color: Colors.black,
-            icon,
-            size: 30,
-          ),
-        ),
-      ),
-    );
-  }
     // card header
     Widget cardHeader = ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 0.w),
@@ -114,25 +91,26 @@ class ProfitCard extends StatelessWidget {
   }
 }
 
-
-
-/*
-
-Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  appBarActions.cardIcon(context, () => null,
-                      Icons.featured_play_list_outlined, Colors.white),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      "Profit",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                  ),
-                ],
-              )
- */
+// card icon
+    Widget cardIcon(
+      BuildContext context, Function() onTap, IconData icon, Color color) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 2.5),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(15),
+              border:
+                  Border.all(style: BorderStyle.solid, color: Colors.white)),
+          padding: const EdgeInsets.all(10),
+          child: Icon(
+            color: Colors.black,
+            icon,
+            size: 30,
+          ),
+        ),
+      ),
+    );
+  }
