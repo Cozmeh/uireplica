@@ -21,8 +21,7 @@ class MobileLayout extends StatefulWidget {
 class _MobileLayoutState extends State<MobileLayout> {
   // variables
   bool _isDarkMode = true;
-  // final AppBarActions appBarActions = AppBarActions();
-
+  
   // theme changing function
   themeChanger() {
     setState(() {

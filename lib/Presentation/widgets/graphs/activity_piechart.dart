@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uireplica/Infrastructure/data_sources/local/piechart_data.dart';
 import 'package:uireplica/Presentation/widgets/indicator.dart';
-import 'package:uireplica/Utils/constants.dart';
 
 class ActivityPieGraph extends StatelessWidget {
   const ActivityPieGraph({super.key});
