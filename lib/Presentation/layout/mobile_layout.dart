@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:uireplica/Presentation/themes/theme_provider.dart';
@@ -111,25 +110,3 @@ class _MobileLayoutState extends State<MobileLayout> {
     );
   }
 }
-
-/*
-GridView.builder(
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
-            itemBuilder: (context, index) {
-              return cards[index];
-            },
-            itemCount: cards.length,
-          ),
- */
-
-/**
- * Scrollbar(
-            child: ListView.builder(
-              itemCount: cards.length,
-              itemBuilder: (BuildContext context, index) {
-                return cards[index];
-              },
-            ),
-          ),
- */
