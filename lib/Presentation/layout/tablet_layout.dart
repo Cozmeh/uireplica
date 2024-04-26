@@ -71,7 +71,7 @@ class _TabletLayoutState extends State<TabletLayout> {
       //const OverviewText(),
       const ProfitCard(),
       const SalesReportCard(),
-      const AnalyticsCard(),
+      AnalyticsCard(),
       const InvoicesCard(),
       const ActivityCard(),
     ];

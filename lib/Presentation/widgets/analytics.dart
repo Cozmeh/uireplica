@@ -5,47 +5,17 @@ import 'package:uireplica/Presentation/widgets/card.dart';
 import 'package:uireplica/Presentation/widgets/graphs/analytics_line_graph.dart';
 
 class AnalyticsCard extends StatelessWidget {
-  const AnalyticsCard({super.key});
-
-  Widget cardHeader(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          "Analytical AI",
-          style: TextStyle(
-              fontSize: 30.sp,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).iconTheme.color,
-              letterSpacing: 1),
-        ),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.surface,
-              surfaceTintColor: Theme.of(context).colorScheme.surface,
-              elevation: 0),
-          onPressed: () {},
-          child: Icon(
-            Icons.more_vert,
-            size: 25.sp,
-            color: Theme.of(context).iconTheme.color,
-          ),
-        ),
-      ],
-    );
-  }
+  AnalyticsCard({super.key});
 
   // month and year
-  Widget monthYear() {
-    return Row(
-      children: [
-        Text(
-          "${DateFormat('MMMM').format(DateTime.now())} ${DateTime.now().year}",
-          style: const TextStyle(color: Colors.grey),
-        )
-      ],
-    );
-  }
+  final Widget monthYear = Row(
+    children: [
+      Text(
+        DateFormat('MMMM y').format(DateTime.now()),
+        style: const TextStyle(color: Colors.grey),
+      )
+    ],
+  );
 
   // graph
   Widget graph() {
@@ -69,7 +39,7 @@ class AnalyticsCard extends StatelessWidget {
           child: Column(
             children: [
               cardHeader(context),
-              monthYear(),
+              monthYear,
               SizedBox(
                 height: 30.h,
               ),
@@ -80,4 +50,32 @@ class AnalyticsCard extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget cardHeader(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        "Analytical AI",
+        style: TextStyle(
+            fontSize: 30.sp,
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).iconTheme.color,
+            letterSpacing: 1),
+      ),
+      ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            surfaceTintColor: Theme.of(context).colorScheme.surface,
+            elevation: 0),
+        onPressed: () {},
+        child: Icon(
+          Icons.more_vert,
+          size: 25.sp,
+          color: Theme.of(context).iconTheme.color,
+        ),
+      ),
+    ],
+  );
 }
