@@ -14,6 +14,49 @@ class _SalesReportCardState extends State<SalesReportCard> {
   // variables
   final List<bool> _selections = [true, false];
 
+  // card header
+  Widget cardHeader(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          "Sales Report",
+          style: TextStyle(
+              fontSize: 30.sp,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).iconTheme.color,
+              letterSpacing: 1),
+        ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.surface,
+              surfaceTintColor: Theme.of(context).colorScheme.surface,
+              elevation: 0),
+          onPressed: () {},
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Week',
+                style: TextStyle(
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Icon(
+                Icons.arrow_drop_down_circle_outlined,
+                size: 20.0,
+                color: Theme.of(context).iconTheme.color,
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
   // toggle buttons
   Widget toggleButtons(BuildContext context) {
     return Row(
@@ -109,47 +152,4 @@ class _SalesReportCardState extends State<SalesReportCard> {
       ),
     );
   }
-}
-
-// card header
-Widget cardHeader(BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(
-        "Sales Report",
-        style: TextStyle(
-            fontSize: 30.sp,
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).iconTheme.color,
-            letterSpacing: 1),
-      ),
-      ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.surface,
-            surfaceTintColor: Theme.of(context).colorScheme.surface,
-            elevation: 0),
-        onPressed: () {},
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'Week',
-              style: TextStyle(
-                color: Theme.of(context).iconTheme.color,
-              ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Icon(
-              Icons.arrow_drop_down_circle_outlined,
-              size: 20.0,
-              color: Theme.of(context).iconTheme.color,
-            ),
-          ],
-        ),
-      )
-    ],
-  );
 }

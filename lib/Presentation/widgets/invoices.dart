@@ -3,16 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uireplica/Infrastructure/data_sources/local/invoices_datatable.dart';
 import 'package:uireplica/Presentation/widgets/card.dart';
 
-class InvoicesCard extends StatefulWidget {
+class InvoicesCard extends StatelessWidget {
   const InvoicesCard({super.key});
+
   @override
-  State<InvoicesCard> createState() => _InvoicesCardState();
-}
-
-class _InvoicesCardState extends State<InvoicesCard> {
-
-  // invoice count
-  Widget invoiceCount = Row(
+  Widget build(BuildContext context) {
+    // invoice count
+    final Widget invoiceCount = Row(
       children: [
         Text(
           "${invoiceData.length} Invoices",
@@ -20,10 +17,9 @@ class _InvoicesCardState extends State<InvoicesCard> {
         )
       ],
     );
-  
 
-  // invoice table
-  Widget invoiceTable =  const Expanded(
+    // invoice table
+    const Widget invoiceTable = Expanded(
       child: SizedBox(
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -36,10 +32,7 @@ class _InvoicesCardState extends State<InvoicesCard> {
         ),
       ),
     );
-  
 
-  @override
-  Widget build(BuildContext context) {
     return InfoCard(
       backgroundColor: Theme.of(context).colorScheme.surface,
       content: Padding(
@@ -138,49 +131,48 @@ class InvoiceTable extends StatelessWidget {
 }
 
 // card header
-  Widget cardHeader(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          "Invoices",
-          style: TextStyle(
-              fontSize: 30.sp,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).iconTheme.color,
-              letterSpacing: 1),
-        ),
-        Row(
-          children: [
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.filter_list_rounded)),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.surface,
-                surfaceTintColor: Theme.of(context).colorScheme.surface,
-                elevation: 0,
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.arrow_drop_down_circle_outlined,
+Widget cardHeader(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text(
+        "Invoices",
+        style: TextStyle(
+            fontSize: 30.sp,
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).iconTheme.color,
+            letterSpacing: 1),
+      ),
+      Row(
+        children: [
+          IconButton(
+              onPressed: () {}, icon: const Icon(Icons.filter_list_rounded)),
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.surface,
+              surfaceTintColor: Theme.of(context).colorScheme.surface,
+              elevation: 0,
+            ),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.arrow_drop_down_circle_outlined,
+                  color: Theme.of(context).iconTheme.color,
+                  size: 20.0,
+                ),
+                const SizedBox(width: 5),
+                Text(
+                  'Report',
+                  style: TextStyle(
                     color: Theme.of(context).iconTheme.color,
-                    size: 20.0,
                   ),
-                  const SizedBox(width: 5),
-                  Text(
-                    'Report',
-                    style: TextStyle(
-                      color: Theme.of(context).iconTheme.color,
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        )
-      ],
-    );
-  }
+                )
+              ],
+            ),
+          )
+        ],
+      )
+    ],
+  );
+}

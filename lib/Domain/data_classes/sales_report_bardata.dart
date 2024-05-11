@@ -8,6 +8,7 @@ class SalesReportBarData {
   final double thursdayAmount;
   final double fridayAmount;
   final double saturdayAmount;
+  List<WeekDayBar> barData = [];
 
   SalesReportBarData(
       {required this.sundayAmount,
@@ -16,8 +17,8 @@ class SalesReportBarData {
       required this.wednesdayAmount,
       required this.thursdayAmount,
       required this.fridayAmount,
-      required this.saturdayAmount}) {
-    barData = [
+      required this.saturdayAmount}) :
+        barData = [
       WeekDayBar(x: 0, y: sundayAmount),
       WeekDayBar(x: 1, y: mondayAmount),
       WeekDayBar(x: 2, y: tuesdayAmount),
@@ -26,6 +27,5 @@ class SalesReportBarData {
       WeekDayBar(x: 5, y: fridayAmount),
       WeekDayBar(x: 6, y: saturdayAmount)
     ];
-  }
-  List<WeekDayBar> barData = [];
+      
 }

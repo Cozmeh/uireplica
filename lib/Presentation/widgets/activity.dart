@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uireplica/Presentation/widgets/card.dart';
+import 'package:uireplica/Presentation/widgets/card_header.dart';
 import 'package:uireplica/Presentation/widgets/graphs/activity_piechart.dart';
 
 class ActivityCard extends StatelessWidget {
@@ -8,7 +9,6 @@ class ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // pie chart
     Widget pieChart = const Expanded(
       child: SizedBox(
@@ -23,7 +23,7 @@ class ActivityCard extends StatelessWidget {
         child: SizedBox(
           child: Column(
             children: [
-              cardHeader(context),
+              const CardHeader(title: "Activity"),
               SizedBox(
                 height: 10.h,
               ),
@@ -36,31 +36,3 @@ class ActivityCard extends StatelessWidget {
   }
 }
 
-// card header
-Widget cardHeader(BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(
-        "Activity",
-        style: TextStyle(
-            fontSize: 30.sp,
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).iconTheme.color,
-            letterSpacing: 1),
-      ),
-      ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.surface,
-            surfaceTintColor: Theme.of(context).colorScheme.surface,
-            elevation: 0),
-        onPressed: () {},
-        child: Icon(
-          Icons.more_vert,
-          size: 25.sp,
-          color: Theme.of(context).iconTheme.color,
-        ),
-      ),
-    ],
-  );
-}

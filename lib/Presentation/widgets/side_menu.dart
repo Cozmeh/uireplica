@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:uireplica/Presentation/widgets/spectra.dart';
 
-// ignore: must_be_immutable
 class SideMenuBar extends StatelessWidget {
-  bool isMobile;
-  SideMenuBar({super.key, required this.isMobile});
+  final bool isMobile;
+  const SideMenuBar({super.key, required this.isMobile});
 
   @override
   Widget build(BuildContext context) {
