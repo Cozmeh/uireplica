@@ -39,7 +39,7 @@ class ActivityPieGraph extends StatelessWidget {
               ),
               PieChart(
                 PieChartData(
-                  centerSpaceRadius: 90,
+                  centerSpaceRadius: 85,
                   sectionsSpace: 10,
                   startDegreeOffset: 0,
                   borderData: FlBorderData(show: false),
@@ -51,7 +51,7 @@ class ActivityPieGraph extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 20.h,
+          height: 50.h,
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 30.w),

@@ -25,7 +25,7 @@ class ActivityCard extends StatelessWidget {
             children: [
               const CardHeader(title: "Activity"),
               SizedBox(
-                height: 10.h,
+                height: 20.h,
               ),
               pieChart,
             ],
@@ -35,4 +35,3 @@ class ActivityCard extends StatelessWidget {
     );
   }
 }
-
