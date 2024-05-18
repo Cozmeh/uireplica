@@ -77,7 +77,7 @@ class _MobileLayoutState extends State<MobileLayout> {
       width: MediaQuery.of(context).size.width,
       backgroundColor: Theme.of(context).colorScheme.background,
       surfaceTintColor: Theme.of(context).colorScheme.background,
-      child: SideMenuBar(
+      child: const SideMenuBar(
         isMobile: true,
       ),
     );

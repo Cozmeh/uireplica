@@ -79,7 +79,7 @@ class _TabletLayoutState extends State<TabletLayout> {
       width: drawerWidth,
       backgroundColor: Theme.of(context).colorScheme.background,
       surfaceTintColor: Theme.of(context).colorScheme.background,
-      child: SideMenuBar(
+      child: const SideMenuBar(
         isMobile: false,
       ),
     );
