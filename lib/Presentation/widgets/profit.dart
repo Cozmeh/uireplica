@@ -8,6 +8,29 @@ class ProfitCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+// card icon
+    Widget cardIcon(
+        BuildContext context, Function() onTap, IconData icon, Color color) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 2.5),
+        child: GestureDetector(
+          onTap: onTap,
+          child: Container(
+            decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(15),
+                border:
+                    Border.all(style: BorderStyle.solid, color: Colors.white)),
+            padding: const EdgeInsets.all(10),
+            child: Icon(
+              color: Colors.black,
+              icon,
+              size: 30,
+            ),
+          ),
+        ),
+      );
+    }
 
     // card header
     Widget cardHeader = ListTile(
@@ -90,27 +113,3 @@ class ProfitCard extends StatelessWidget {
     );
   }
 }
-
-// card icon
-    Widget cardIcon(
-      BuildContext context, Function() onTap, IconData icon, Color color) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 2.5),
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(15),
-              border:
-                  Border.all(style: BorderStyle.solid, color: Colors.white)),
-          padding: const EdgeInsets.all(10),
-          child: Icon(
-            color: Colors.black,
-            icon,
-            size: 30,
-          ),
-        ),
-      ),
-    );
-  }

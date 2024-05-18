@@ -7,6 +7,42 @@ class SideMenuBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget item(String title, IconData leadingIcon, void Function() onTap,
+        bool selected, BuildContext context) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+        child: Card(
+          color: Theme.of(context).colorScheme.background,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: ListTile(
+            selected: selected,
+            selectedTileColor: Colors.grey.withOpacity(0.2),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            onTap: onTap,
+            leading: Icon(
+              leadingIcon,
+              color: Theme.of(context).iconTheme.color,
+              size: 25,
+            ),
+            title: Text(
+              title,
+              style: TextStyle(
+                fontFamily: "Inter",
+                fontSize: 25,
+                fontWeight: FontWeight.w500,
+                color: Theme.of(context).iconTheme.color,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     return Column(
       //padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       children: [
@@ -37,40 +73,4 @@ class SideMenuBar extends StatelessWidget {
       ],
     );
   }
-}
-
-Widget item(String title, IconData leadingIcon, void Function() onTap,
-    bool selected, BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-    child: Card(
-      color: Theme.of(context).colorScheme.background,
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: ListTile(
-        selected: selected,
-        selectedTileColor: Colors.grey.withOpacity(0.2),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        onTap: onTap,
-        leading: Icon(
-          leadingIcon,
-          color: Theme.of(context).iconTheme.color,
-          size: 25,
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-            fontFamily: "Inter",
-            fontSize: 25,
-            fontWeight: FontWeight.w500,
-            color: Theme.of(context).iconTheme.color,
-          ),
-        ),
-      ),
-    ),
-  );
 }

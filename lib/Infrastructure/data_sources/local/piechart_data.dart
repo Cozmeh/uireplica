@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:uireplica/Utils/constants.dart';
 
-Map<String, Map<int, Color>> pieChartSectionValue = {
+Map<String, Map<double, Color>> pieChartSectionValue = {
   "Transaction": {452: Constants.SECONDARY},
   "Payouts": {412: Constants.PRIMARY},
   "Sales": {715: Constants.DARK_BACKGROUND},
@@ -21,7 +21,7 @@ PieChartSectionData sectionData(
         radius: 20,
         backgroundColor: Theme.of(context).colorScheme.background,
         child: Text(
-          value.toString(),
+          value.toInt().toString(),
           style: TextStyle(color: Theme.of(context).iconTheme.color),
         )),
   );
