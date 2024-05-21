@@ -29,7 +29,7 @@ PieChartSectionData sectionData(
 
 List<PieChartSectionData> pieChartSectionData(BuildContext context) {
   return pieChartSectionValue.entries
-      .map((e) => sectionData(context, e.value.entries.first.key.toDouble(),
+      .map((e) => sectionData(context, e.value.entries.first.key,
           e.value.entries.first.value, 25))
       .toList();
 }

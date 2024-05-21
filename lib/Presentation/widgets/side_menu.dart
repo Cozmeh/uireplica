@@ -5,9 +5,7 @@ class SideMenuBar extends StatelessWidget {
   final bool isMobile;
   const SideMenuBar({super.key, required this.isMobile});
 
-  @override
-  Widget build(BuildContext context) {
-    Widget item(String title, IconData leadingIcon, void Function() onTap,
+  Widget item(String title, IconData leadingIcon, void Function() onTap,
         bool selected, BuildContext context) {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
@@ -43,6 +41,8 @@ class SideMenuBar extends StatelessWidget {
       );
     }
 
+  @override
+  Widget build(BuildContext context) {
     return Column(
       //padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       children: [

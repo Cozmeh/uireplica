@@ -6,9 +6,7 @@ import 'package:uireplica/Presentation/widgets/card.dart';
 class ProfitCard extends StatelessWidget {
   const ProfitCard({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-// card icon
+  // card icon
     Widget cardIcon(
         BuildContext context, Function() onTap, IconData icon, Color color) {
       return Padding(
@@ -31,6 +29,9 @@ class ProfitCard extends StatelessWidget {
         ),
       );
     }
+
+  @override
+  Widget build(BuildContext context) {
 
     // card header
     Widget cardHeader = ListTile(

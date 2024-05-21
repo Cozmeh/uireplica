@@ -6,9 +6,7 @@ import 'package:uireplica/Presentation/widgets/card.dart';
 class InvoicesCard extends StatelessWidget {
   const InvoicesCard({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    // card header
+   // card header
     Widget cardHeader(BuildContext context) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,6 +54,8 @@ class InvoicesCard extends StatelessWidget {
       );
     }
 
+  @override
+  Widget build(BuildContext context) {
     // invoice count
     final Widget invoiceCount = Row(
       children: [
