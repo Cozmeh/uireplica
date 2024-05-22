@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:uireplica/Domain/data_classes/sales_report_bardata.dart';
 import 'package:uireplica/Infrastructure/data_sources/local/weekly_amount_data.dart';
+import 'package:uireplica/Presentation/widgets/sales_report_bottom_text.dart';
 
 class SalesReportBarGraph extends StatelessWidget {
   const SalesReportBarGraph({super.key});
@@ -17,9 +18,6 @@ class SalesReportBarGraph extends StatelessWidget {
       fridayAmount: weeklyAmount[5],
       saturdayAmount: weeklyAmount[6],
     );
-
-    // initializing with data
-    // salesReportBarData.initBarData();
 
     return BarChart(
       BarChartData(
@@ -60,38 +58,5 @@ class SalesReportBarGraph extends StatelessWidget {
   }
 }
 
-Widget bottomText(double value, TitleMeta meta) {
-  const style =
-      TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 10);
-
-  Widget text;
-  switch (value.toInt()) {
-    case 0:
-      text = const Text("Sun", style: style);
-      break;
-    case 1:
-      text = const Text("Mon", style: style);
-      break;
-    case 2:
-      text = const Text("Tue", style: style);
-      break;
-    case 3:
-      text = const Text("Wed", style: style);
-      break;
-    case 4:
-      text = const Text("Thu", style: style);
-      break;
-    case 5:
-      text = const Text("Fri", style: style);
-      break;
-    case 6:
-      text = const Text("Sat", style: style);
-      break;
-    default:
-      text = const Text(" ", style: style);
-  }
-
-  return SideTitleWidget(axisSide: meta.axisSide, child: text);
-}
 
 

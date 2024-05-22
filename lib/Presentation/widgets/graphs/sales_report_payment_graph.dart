@@ -2,12 +2,50 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:uireplica/Domain/data_classes/sales_report_bardata.dart';
 import 'package:uireplica/Infrastructure/data_sources/local/weekly_payment_data.dart';
+import 'package:uireplica/Presentation/widgets/sales_report_bottom_text.dart';
 
 class SalesReportPaymentGraph extends StatelessWidget {
   const SalesReportPaymentGraph({super.key});
 
+//   Widget bottomText(double value, TitleMeta meta) {
+//   const style = TextStyle(
+//     color: Colors.grey,
+//     fontWeight: FontWeight.bold,
+//   );
+
+//   Widget text;
+//   switch (value.toInt()) {
+//     case 0:
+//       text = const Text("Sun", style: style);
+//       break;
+//     case 1:
+//       text = const Text("Mon", style: style);
+//       break;
+//     case 2:
+//       text = const Text("Tue", style: style);
+//       break;
+//     case 3:
+//       text = const Text("Wed", style: style);
+//       break;
+//     case 4:
+//       text = const Text("Thu", style: style);
+//       break;
+//     case 5:
+//       text = const Text("Fri", style: style);
+//       break;
+//     case 6:
+//       text = const Text("Sat", style: style);
+//       break;
+//     default:
+//       text = const Text(" ", style: style);
+//   }
+
+//   return SideTitleWidget(axisSide: meta.axisSide, child: text);
+// }
+
   @override
   Widget build(BuildContext context) {
+
     SalesReportBarData salesReportBarData = SalesReportBarData(
       sundayAmount: weeklyPayment[0],
       mondayAmount: weeklyPayment[1],
@@ -17,9 +55,6 @@ class SalesReportPaymentGraph extends StatelessWidget {
       fridayAmount: weeklyPayment[5],
       saturdayAmount: weeklyPayment[6],
     );
-
-    // initializing with data
-    // salesReportBarData.initBarData();
 
     return BarChart(
       BarChartData(
@@ -60,38 +95,4 @@ class SalesReportPaymentGraph extends StatelessWidget {
   }
 }
 
-Widget bottomText(double value, TitleMeta meta) {
-  const style = TextStyle(
-    color: Colors.grey,
-    fontWeight: FontWeight.bold,
-  );
 
-  Widget text;
-  switch (value.toInt()) {
-    case 0:
-      text = const Text("Sun", style: style);
-      break;
-    case 1:
-      text = const Text("Mon", style: style);
-      break;
-    case 2:
-      text = const Text("Tue", style: style);
-      break;
-    case 3:
-      text = const Text("Wed", style: style);
-      break;
-    case 4:
-      text = const Text("Thu", style: style);
-      break;
-    case 5:
-      text = const Text("Fri", style: style);
-      break;
-    case 6:
-      text = const Text("Sat", style: style);
-      break;
-    default:
-      text = const Text(" ", style: style);
-  }
-
-  return SideTitleWidget(axisSide: meta.axisSide, child: text);
-}
